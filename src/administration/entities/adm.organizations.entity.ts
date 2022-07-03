@@ -1,29 +1,21 @@
 import {
     Entity,
-    PrimaryGeneratedColumn,
     Column,
-    CreateDateColumn,
     OneToMany,
-    JoinColumn,
   } from 'typeorm';
+import { BaseEntity } from '../base';
 import { Tribe } from './adm.tribes.entity';
   
   @Entity({ name: 'adm_organizations', schema: 'public' })
 
-  export class Organization {
-    @PrimaryGeneratedColumn()
-    id: number;
-  
-    @Column({ type: 'text',length: 50, nullable: false })
-    name!: string;
-  
-    @Column({ type: 'int', default: 0, nullable: false })
-    status: number;
-  
-    @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
-    created_at: Date;
+export class Organization extends BaseEntity {
+  @Column({ type: 'text',length: 50, nullable: false })
+  name!: string;
 
-    @OneToMany(() => Tribe, (tribe) => tribe.organization)
-    tribe: Tribe[]
+  @Column({ type: 'int', default: 0, nullable: false })
+  status: number;
+
+  @OneToMany(() => Tribe, (tribe) => tribe.organization)
+  tribes: Tribe[]
   
-  }
+}

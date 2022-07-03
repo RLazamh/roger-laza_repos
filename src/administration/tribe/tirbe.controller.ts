@@ -13,7 +13,6 @@ export class TribeController {
         // const organization = new Organization();
         create_tribe_dto.name = 'Nueva Tribu';
         create_tribe_dto.status = 1;
-        create_tribe_dto.created_at = new Date();
         // create_tribe_dto.organization = organization;
         return this._tribe_service.create(create_tribe_dto);
     }

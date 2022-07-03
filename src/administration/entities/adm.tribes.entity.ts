@@ -1,20 +1,17 @@
 import {
     Entity,
-    PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
     ManyToOne,
     OneToMany,
   } from 'typeorm';
+import { BaseEntity } from '../base';
 import { Organization } from './adm.organizations.entity';
 import { RepositoryEntity } from './adm.repository.entity';
   
   @Entity({ name: 'adm_tribes', schema: 'public' })
 
-  export class Tribe {
-    @PrimaryGeneratedColumn()
-    id: number;
-  
+  export class Tribe extends BaseEntity {
     @Column({ type: 'text',length: 50, nullable: false })
     name!: string;
   
@@ -24,9 +21,9 @@ import { RepositoryEntity } from './adm.repository.entity';
     @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
     created_at: Date;
 
-    @ManyToOne( () => Organization, (organization) => organization.tribe)
+    @ManyToOne( () => Organization, (organization) => organization.tribes)
     organization: Organization 
   
     @OneToMany(() => RepositoryEntity, (repository) => repository.tribe)
-    repository: RepositoryEntity[]
+    repositories: RepositoryEntity[]
   }

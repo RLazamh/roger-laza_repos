@@ -14,8 +14,7 @@ export class TribeService{
         const new_tribe = await this._tribe_repository.save({
           name: create_tribe_dto.name,
           status: create_tribe_dto.status,
-          created_at: create_tribe_dto.created_at,
-          organization: create_tribe_dto.organization,
+          organization: {'id':create_tribe_dto.organizations},
         });
         return new_tribe;
     }

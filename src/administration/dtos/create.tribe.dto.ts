@@ -2,9 +2,7 @@ import {
     IsNotEmpty,
     IsString,
     IsInt,
-    IsDate,
   } from 'class-validator';
-import { Organization } from '../entities';
   
   export class CreateTribeDto {
     @IsInt()
@@ -18,10 +16,8 @@ import { Organization } from '../entities';
     @IsString()
     status: number;
   
-    @IsDate()
-    created_at: Date;
-
+    @IsNotEmpty()
     @IsInt()
-    organization : Organization;
+    organizations : number;
 
   }
