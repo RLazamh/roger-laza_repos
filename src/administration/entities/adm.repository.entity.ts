@@ -3,27 +3,29 @@ import {
     PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
-    OneToMany,
-    JoinColumn,
+    ManyToOne,
   } from 'typeorm';
 import { Tribe } from './adm.tribes.entity';
   
-  @Entity({ name: 'adm_organizations', schema: 'public' })
+  @Entity({ name: 'adm_tribes', schema: 'public' })
 
-  export class Organization {
+  export class RepositoryEntity {
     @PrimaryGeneratedColumn()
     id: number;
   
     @Column({ type: 'text',length: 50, nullable: false })
     name!: string;
   
-    @Column({ type: 'int', default: 0, nullable: false })
-    status: number;
+    @Column({ type: 'char', length:1 , nullable: false })
+    state: string;
+
+    @Column({ type: 'char', length:1 , nullable: false })
+    status: string;
   
     @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
     created_at: Date;
 
-    @OneToMany(() => Tribe, (tribe) => tribe.organization)
-    tribe: Tribe[]
+    @ManyToOne( () => Tribe, (tribe) => tribe.repository)
+    tribe: Tribe 
   
   }

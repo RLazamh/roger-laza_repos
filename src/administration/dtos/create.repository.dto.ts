@@ -4,9 +4,9 @@ import {
     IsInt,
     IsDate,
   } from 'class-validator';
-import { Organization } from '../entities';
+import { Tribe } from '../entities';
   
-  export class CreateTribeDto {
+  export class CreateRepositoryDto {
     @IsInt()
     id: number;
   
@@ -16,12 +16,16 @@ import { Organization } from '../entities';
   
     @IsNotEmpty()
     @IsString()
-    status: number;
+    status: string;
+
+    @IsNotEmpty()
+    @IsString()
+    state: string;
   
     @IsDate()
     created_at: Date;
 
     @IsInt()
-    organization : Organization;
+    tribe : Tribe;
 
   }

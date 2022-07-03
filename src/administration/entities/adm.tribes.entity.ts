@@ -4,8 +4,10 @@ import {
     Column,
     CreateDateColumn,
     ManyToOne,
+    OneToMany,
   } from 'typeorm';
 import { Organization } from './adm.organizations.entity';
+import { RepositoryEntity } from './adm.repository.entity';
   
   @Entity({ name: 'adm_tribes', schema: 'public' })
 
@@ -25,4 +27,6 @@ import { Organization } from './adm.organizations.entity';
     @ManyToOne( () => Organization, (organization) => organization.tribe)
     organization: Organization 
   
+    @OneToMany(() => RepositoryEntity, (repository) => repository.tribe)
+    repository: RepositoryEntity[]
   }

@@ -12,12 +12,12 @@ export class OrganizationService{
     ){}
 
     async create(create_organization_dto: CreateOrganizationDto): Promise<Organization> {
-        const newPost = await this._organization_repositoy.save({
+        const new_organization = await this._organization_repositoy.save({
           name: create_organization_dto.name,
           status: create_organization_dto.status,
           created_at: create_organization_dto.created_at,
         });
-        return newPost;
+        return new_organization;
     }
 
     async findAll(): Promise<Organization[]> {
