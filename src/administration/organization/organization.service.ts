@@ -11,11 +11,11 @@ export class OrganizationService{
         private readonly _organization_repositoy : Repository<Organization>
     ){}
 
-    async create(createPostDto: CreateOrganizationDto): Promise<Organization> {
+    async create(create_organization_dto: CreateOrganizationDto): Promise<Organization> {
         const newPost = await this._organization_repositoy.save({
-          name: createPostDto.name,
-          status: createPostDto.status,
-          created_at: createPostDto.created_at,
+          name: create_organization_dto.name,
+          status: create_organization_dto.status,
+          created_at: create_organization_dto.created_at,
         });
         return newPost;
     }
@@ -26,12 +26,5 @@ export class OrganizationService{
 
     getOrganization() : number {
         return 200;
-        // const accountRepository = AppDataSource.getRepository(Organization);
-        // const organization = new Organization();
-        // organization.name ='Roger Laza';
-        // organization.status = 2;
-        // accountRepository.save(organization);
-        // console.log("Saved a new account.");
-        // return organization.id;
     }
 }

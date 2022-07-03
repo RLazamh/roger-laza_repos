@@ -3,13 +3,13 @@ import {
     PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
-    OneToMany,
+    ManyToOne,
   } from 'typeorm';
-import { Tribe } from './adm.tribes.entity';
+import { Organization } from './adm.organizations.entity';
   
-  @Entity({ name: 'adm_organizations', schema: 'public' })
+  @Entity({ name: 'adm_tribes', schema: 'public' })
 
-  export class Organization {
+  export class Tribe {
     @PrimaryGeneratedColumn()
     id: number;
   
@@ -22,7 +22,7 @@ import { Tribe } from './adm.tribes.entity';
     @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
     created_at: Date;
 
-    @OneToMany(() => Tribe, (tribe) => tribe.organization)
-    tribe: Tribe[]
+    @ManyToOne( () => Organization, (organization) => organization.tribe)
+    organization: Organization 
   
   }

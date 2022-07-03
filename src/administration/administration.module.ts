@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { OrganizationModule } from './organization/organization.module';
-import { TribesModule } from './tribes/tribes.module';
+import { TribesModule } from './tribe/tribe.module';
 
 @Module({
     imports: [
