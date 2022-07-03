@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'src/config/database.module';
+import { DatabaseModule } from '../database/database.module';
 import { MetricController } from './metric.controller';
 import { metricProvider } from './metric.provider';
 import { MetricService } from './metric.service';

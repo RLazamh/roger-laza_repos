@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'src/config/database.module';
+import { DatabaseModule } from '../database/database.module';
 import { TribeController } from './tirbe.controller';
 import { tribeProvider } from './tribe.provider';
 import { TribeService } from './tribe.service';

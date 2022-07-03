@@ -1,6 +1,6 @@
 
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'src/config/database.module';
+import { DatabaseModule } from '../database/database.module';
 import { OrganizationController } from './organization.controller';
 import { organizationProvider } from './organization.provider';
 import { OrganizationService } from './organization.service';
