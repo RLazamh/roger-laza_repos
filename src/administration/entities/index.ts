@@ -1,1 +1,1 @@
-export * from './adm-organizations-entity';
+export * from './adm.organizations.entity';
