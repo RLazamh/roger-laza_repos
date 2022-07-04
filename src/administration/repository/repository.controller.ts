@@ -24,8 +24,8 @@ export class RepositoryController {
         return this._repository_service.create(create_repository_dto);
     }
 
-    // @Get('fake')
-    // async getRepositories() : Promise<any> {
-    //     return 'Hello world';
-    // }
+    @Get('fake')
+    async getRepositories() : Promise<any> {
+        return 'Hello world';
+    }
 }
