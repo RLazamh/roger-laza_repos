@@ -26,6 +26,6 @@ import {
 
     @IsNotEmpty()
     @IsInt()
-    tribes : number;
+    tribe : number;
 
   }

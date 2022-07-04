@@ -28,7 +28,7 @@ export class MetricService{
         return this._metric_repositoy.find();
     }
 
-    getOrganization() : number {
+    working() : number {
         return 200;
     }
 }

@@ -9,7 +9,7 @@ export class OrganizationController {
     constructor(private readonly _organization_service: OrganizationService ){}
 
     @Get()
-    async getMany() {
+    async getAll() {
         const data = await this._organization_service.getAll();
         return { data };
     }
