@@ -21,12 +21,8 @@ export class OrganizationController {
     }
 
     @Post()
-    createOrganization() : Promise<Organization> {
-        const create_organization_dto = new CreateOrganizationDto()
-        create_organization_dto.name = 'Roger Laza';
-        create_organization_dto.status = 1;
-        create_organization_dto.created_at = new Date();
-        return this._organization_service.create(create_organization_dto);
+    createOrganization(@Body() dto: CreateOrganizationDto) : Promise<Organization> {
+        return this._organization_service.create(dto);
     }
 
     @Put(':id')
